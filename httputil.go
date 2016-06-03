@@ -2,6 +2,7 @@ package httputil
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -19,6 +20,6 @@ type httpError struct {
 }
 
 // WriteError writes an error to an http.ResponseWriter
-func WriteError(w http.ResponseWriter, msg string) {
-	WriteJSON(w, httpError{msg})
+func WriteError(w http.ResponseWriter, msg interface{}) {
+	WriteJSON(w, httpError{fmt.Sprintf("%v", msg)})
 }
