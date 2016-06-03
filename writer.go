@@ -16,7 +16,7 @@ func WriteJSON(w http.ResponseWriter, data interface{}) {
 }
 
 type httpError struct {
-	Success bool
+	Success bool   `json:"success"`
 	Error   string `json:"error"`
 }
 
