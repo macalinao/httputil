@@ -22,5 +22,5 @@ type httpError struct {
 
 // WriteError writes an error to an http.ResponseWriter
 func WriteError(w http.ResponseWriter, msg interface{}) {
-	WriteJSON(w, httpError{fmt.Sprintf("%v", msg)})
+	WriteJSON(w, httpError{false, fmt.Sprintf("%v", msg)})
 }
