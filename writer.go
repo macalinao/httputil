@@ -24,3 +24,9 @@ type httpError struct {
 func WriteError(w http.ResponseWriter, msg interface{}) {
 	WriteJSON(w, httpError{false, fmt.Sprintf("%v", msg)})
 }
+
+// WriteNotFound writes not found
+func WriteNotFound(w http.ResponseWriter) {
+	w.WriteHeader(http.StatusNotFound)
+	WriteError(w, "Not found")
+}
